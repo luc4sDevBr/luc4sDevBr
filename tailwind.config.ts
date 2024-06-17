@@ -7,14 +7,7 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    screens: {
-      'phone': '360px',
-      // => @media (min-width: 360px) { ... }
-      'tablet': '640px',
-      // => @media (min-width: 640px) { ... }
-      'desktop': '1280px',
-      // => @media (min-width: 1280px) { ... }
-    },
+
 
     extend: {
       backgroundImage: {
