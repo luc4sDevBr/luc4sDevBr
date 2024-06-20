@@ -1,4 +1,6 @@
 import Image from "next/image";
+import {Button} from "@nextui-org/button";
+import Link from "next/link";
 import { Linkedin, Github } from "lucide-react"
 
 export default function Home() {
@@ -23,9 +25,17 @@ export default function Home() {
               </span>
              
             </div>
-            <div className="w-full flex p-4 md:w-full  md:p-10 md:flex md:justify-end md:items-end ">
-              <Linkedin color="#ffffff"/>
-              <Github color="#ffffff"/>
+            <div className="w-full flex p-4 gap-2 md:w-full md:p-10 md:flex md:justify-end md:items-end ">
+                <Link className=" " href={"https://www.linkedin.com/in/lucas-conrado-784a571a1/"}>
+                  <Button className="">
+                    <Linkedin color="#ffffff"/>
+                  </Button>
+                </Link>
+                <Link className=" " href={"https://github.com/luc4sDevBr"}>
+                  <Button className="">
+                    <Github color="#ffffff"/>
+                  </Button>
+                </Link>
             </div>
           </div>
           <div
@@ -35,14 +45,30 @@ export default function Home() {
        
           <div
             id="containerButtons"
-            className=" w-full h-20 bottom-10 absolute flex items-center md:w-1/2 md:h-24 md:absolute md:bottom-10 md:left-20 bg-gray-500 border-8 border-white rounded-full"
+            className=" w-full h-20 bottom-10 absolute flex items-center md:w-1/2 md:h-20 md:absolute md:bottom-10 md:left-20 bg-gray-500 border-8 border-white rounded-full"
           >
             <div className="w-full justify-center">
                 <ul className="w-auto flex items-center justify-evenly text-white font-light text-sm text-center gap-5 md:w-auto md:text-xl">
-                  <li>Sobre</li>
-                  <li>Experiencias</li>
-                  <li>Trabalhos</li>
-                  <li>Contatos</li>
+                  <Link className=" " href={"/"}>
+                    <Button className="">
+                      <li>Sobre</li>
+                    </Button>
+                  </Link>
+                  <Link className=" " href={"/Experiencias"}>
+                    <Button className="">
+                      <li>Experiencias</li>
+                    </Button>
+                  </Link>
+                  <Link className=" " href={"/"}>
+                    <Button className="">
+                      <li>Trabalhos</li>
+                    </Button>
+                  </Link>
+                  <Link className=" " href={"/"}>
+                    <Button className="">
+                      <li>Contatos</li>
+                    </Button>
+                  </Link>
                 </ul>
             </div>
           </div>

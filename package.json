@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/button": "^2.0.34",
+    "antd": "^5.18.3",
     "lucide-react": "^0.395.0",
     "next": "14.2.3",
     "react": "^18",
