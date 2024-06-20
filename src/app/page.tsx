@@ -10,18 +10,22 @@ export default function Home() {
            
           </ul>
         </div>
-        <div id="containerCentral" className="w-full h-3/4 md:w-3/4 md:h-3/4 bg-slate-700 rounded-md p-2 flex flex-col md:flex-row items-center">
-          <div id="containerText" className="w-full h-full flex items-center">
-             <Linkedin color="#ffffff"/>
-             <Github color="#ffffff"/>
+        <div id="containerCentral" className="w-full h-3/4 md:w-3/4 md:items-end md:h-3/4 bg-slate-700 rounded-md p-2 flex flex-col md:flex-row items-center">
+          <div id="containerText" className="w-full h-full flex flex-col justify-center md:flex md:items-start md:w-full md:h-auto  items-center">
+             
             <div
               id="containerText2"
-              className="w-full md:w-1/2 p-4 md:p-10 text-left"
+              className="w-full  md:w-1/2 p-4 md:p-10 text-left"
             >
               <h1 className="text-3xl font-bold text-teal-50">A Vida na Aldeia</h1>
               <span className="text-sm text-white break-words">
                 Em uma aldeia tranquila, cercada por colinas e um rio sereno, a vida seguia em harmonia com a natureza. As manhãs começavam com o canto dos pássaros e o aroma do pão fresco.
               </span>
+             
+            </div>
+            <div className="w-full flex p-4 md:w-full  md:p-10 md:flex md:justify-end md:items-end ">
+              <Linkedin color="#ffffff"/>
+              <Github color="#ffffff"/>
             </div>
           </div>
           <div
