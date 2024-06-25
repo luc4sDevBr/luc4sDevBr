@@ -2,10 +2,11 @@ import Image from "next/image";
 import {Button} from "@nextui-org/button";
 import Link from "next/link";
 import { Linkedin, Github } from "lucide-react"
+import CarouselXP from "@/components/CarousselXP";
 
 export default function Home() {
   return (
-    <main className="w-screen h-screen">
+    <main className="w-full h-screen">
       <section className="w-full h-full flex-col flex items-center justify-start gap-16 bg-white">
         <div className="w-auto">
           <ul className="w-auto mt-5 flex items-center text-xl text-center gap-5">
@@ -73,6 +74,10 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="w-full h-screen flex-col flex items-center justify-center bg-slate-600">
+        <CarouselXP />
       </section>
     </main>
   );

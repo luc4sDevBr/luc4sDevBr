@@ -7,7 +7,7 @@ import CarouselXP from "../../components/CarousselXP";
 export default function Home() {
   return (
     <main className="w-screen h-screen">
-      <section className="w-full h-full flex-col flex items-center justify-start gap-16 bg-white">
+      <section className="w-full h-full flex-col flex items-center justify-start gap-16 bg-slate-600">
         <CarouselXP />
       </section>
     </main>
