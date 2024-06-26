@@ -1,30 +1,102 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Button } from 'primereact/button';
+import { Carousel, CarouselResponsiveOption } from 'primereact/carousel';
+import { Tag } from 'primereact/tag';
+import { ProductService } from '../../app/service/ProductService';
+import { CircleArrowLeft, CircleArrowRight  } from 'lucide-react';
 
-function CarouselXP() {
-  
-  const [ArrowCarousel, setArrowCarousel] = useState(false);
-
-  return (
-    <div className='w-full h-full flex flex-col items-center justify-center'>
-      <div id="containerCentral" className="w-3/4 h-3/4 md:w-3/4 md:items-end md:h-3/4 bg-slate-700 rounded-md p-2 flex flex-col md:flex-row items-center">
-          
-        <p>O interruptor está {ArrowCarousel.toString()}</p>
-      
-      </div>
-      <div className='w-3/4 h-auto bg-slate-600 flex justify-end gap-2'>
-        <button 
-           className='w-40 h-20 bg-slate-900'
-          onClick={() => ArrowCarousel==false?setArrowCarousel(true):setArrowCarousel(false)}>
-            Clique aqui
-         </button>
-         <button 
-           className='w-40 h-20 bg-slate-900'
-          onClick={() => ArrowCarousel==false?setArrowCarousel(true):setArrowCarousel(false)}>
-            Clique aqui
-         </button>
-      </div>
-    </div>
-  );
+interface Product {
+    id: string;
+    code: string;
+    name: string;
+    description: string;
+    image: string;
+    price: number;
+    category: string;
+    quantity: number;
+    inventoryStatus: string;
+    rating: number;
 }
-export default CarouselXP;
+
+export default function CarouselXP() {
+    const [products, setProducts] = useState<Product[]>([]);
+    const responsiveOptions: CarouselResponsiveOption[] = [
+        {
+            breakpoint: '1400px',
+            numVisible: 2,
+            numScroll: 1
+        },
+        {
+            breakpoint: '1199px',
+            numVisible: 3,
+            numScroll: 1
+        },
+        {
+            breakpoint: '767px',
+            numVisible: 2,
+            numScroll: 1
+        },
+        {
+            breakpoint: '575px',
+            numVisible: 1,
+            numScroll: 1
+        }
+    ];
+
+    const getSeverity = (product: Product) => {
+        switch (product.inventoryStatus) {
+            case 'INSTOCK':
+                return 'success';
+
+            case 'LOWSTOCK':
+                return 'warning';
+
+            case 'OUTOFSTOCK':
+                return 'danger';
+
+            default:
+                return null;
+        }
+    };
+
+    useEffect(() => {
+        ProductService.getProductsSmall().then((data: any[]) => setProducts(data.slice(0, 9)));
+    }, []);
+
+    const productTemplate = (product: Product) => {
+        return (
+            <div className="h-auto w-11/12 bg-white border-1 text-left py-5 px-5 border-8 border-white rounded-3xl m-2">
+                <div className="mb-3 flex justify-end ">
+                    <img src={`https://primefaces.org/cdn/primereact/images/product/${product.image}`} alt={product.name} className=" w-52 h-52 border-8 border-gray-500 shadow-2 rounded-full" />
+                </div>
+                <div className="h-[220px]" >
+                    <h4 className="mb-1">{product.name}</h4>
+                    <h6 className="mt-0 mb-3">${product.price}</h6>
+                    <Tag value={product.inventoryStatus} severity={getSeverity(product)}></Tag>
+                </div>
+            </div>
+        );
+    };
+    
+    return (
+        
+            <div className="card h-auto">
+                <Carousel
+                prevIcon={<CircleArrowLeft color='#ffff'/>} 
+                nextIcon={<CircleArrowRight color='#ffff'/>} 
+                value={products} 
+                numScroll={1} 
+                numVisible={1} 
+                responsiveOptions={responsiveOptions} 
+                itemTemplate={productTemplate} />
+            </div>
+        
+
+        
+    )
+    
+}
+
+
+        
