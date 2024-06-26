@@ -1,3 +1,6 @@
+Bem vindo ao meeu repositório pessoal.
+Eis aqui o projto do meu site pessoal, estudando Next.JS, estou aberto a quais quer ideias que possam contribuir com o projto.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
