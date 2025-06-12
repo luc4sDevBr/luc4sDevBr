@@ -426,9 +426,9 @@ export default function MobileGame() {
     <div
       className="h-screen bg-gradient-to-br from-purple-950 via-black to-indigo-950 flex flex-col items-center justify-center p-2 overflow-hidden touch-none select-none"
       style={{
-        height: "100vh",
+        height: "730px", // Altura fixa para evitar problemas de rolagem em dispositivos móveis
         // height: "100dvh",
-        maxHeight: "-webkit-fill-available",
+        maxHeight: "900px",
       }}
     >
       {/* Header compacto */}
